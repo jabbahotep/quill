@@ -31,9 +31,9 @@ Tag.blotName = 'Tag';
 Tag.tagName = 'SPAN';
 
 function sanitize(tag) {
-    tags = tag.split(/[^A-Za-z0-9\_]/);
+    var tags = tag.split(/[^A-Za-z0-9\_]/);
     var sanitizedTags = [];
-    for (tag in tags) {
+    for (var tag in tags) {
         if (tag.length > 0) {
             sanitizedTags.push(tag);
         }
