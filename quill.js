@@ -19,6 +19,7 @@ import { SizeClass, SizeStyle } from './formats/size';
 
 import Bold from './formats/bold';
 import Italic from './formats/italic';
+import Tag from './formats/tag';
 import Link from './formats/link';
 import Script from './formats/script';
 import Strike from './formats/strike';
@@ -84,6 +85,7 @@ Quill.register(
     'formats/code': InlineCode,
     'formats/italic': Italic,
     'formats/link': Link,
+    'formats/tag': Tag,
     'formats/script': Script,
     'formats/strike': Strike,
     'formats/underline': Underline,
