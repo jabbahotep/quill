@@ -26,20 +26,13 @@ class Link extends Inline {
       const tags = this.constructor.sanitize(value);
       for (var i = 0; i < tags.length; i++) {
         const tagIndex = (i + 1).toString;
-        this.domNode.setAttribute(`data-tag-{}` + i.toString, value);       
+        this.domNode.setAttribute(`data-tag-{$tagIndex}`, value);       
       }
     }
   }
 }
 Tag.blotName = 'Tag';
 Tag.tagName = 'SPAN';
-
-function sanitize(url, protocols) {
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  const protocol = anchor.href.slice(0, anchor.href.indexOf(':'));
-  return protocols.indexOf(protocol) > -1;
-}
 
 function sanitize(tag) {
   var tags = tag.split(/[^A-Za-z0-9\_]/);
