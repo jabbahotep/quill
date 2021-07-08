@@ -1,10 +1,10 @@
 import Inline from '../blots/inline';
 
-class Link extends Inline {
+class Tag extends Inline {
   static create(value) {
     const node = super.create(value);
-    const tags = this.sanitize(value)
-    for (let i = 0; i < tags.length; i = i + 1) {
+    const tags = this.sanitize(value);
+    for (let i = 0; i < tags.length; i += 1) {
       const tagIndex = (i + 1).toString;
       node.setAttribute(`data-tag-{$tagIndex}`, tags[i]);
     }
@@ -24,9 +24,9 @@ class Link extends Inline {
       super.format(name, value);
     } else {
       const tags = this.constructor.sanitize(value);
-      for (var i = 0; i < tags.length; i++) {
+      for (let i = 0; i < tags.length; i += 1) {
         const tagIndex = (i + 1).toString;
-        this.domNode.setAttribute(`data-tag-{$tagIndex}`, value);       
+        this.domNode.setAttribute(`data-tag-{$tagIndex}`, value);
       }
     }
   }
@@ -35,9 +35,9 @@ Tag.blotName = 'Tag';
 Tag.tagName = 'SPAN';
 
 function sanitize(tag) {
-  var tags = tag.split(/[^A-Za-z0-9\_]/);
-  var sanitizedTags = [];
-  for (var tag in tags) {
+  const tags = tag.split(/[^A-Za-z0-9\_]/);
+  const sanitizedTags = [];
+  for (const tag in tags) {
     if (tag.length > 0) {
       sanitizedTags.push(tag);
     }
