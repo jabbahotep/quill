@@ -6,7 +6,7 @@ class Tag extends Inline {
     const tags = this.sanitize(value);
     for (let i = 0; i < tags.length; i += 1) {
       const tagIndex = (i + 1).toString;
-      node.setAttribute(`data-tag-{$tagIndex}`, tags[i]);
+      node.setAttribute(`data-tag-${tagIndex}`, tags[i]);
     }
     return node;
   }
@@ -26,7 +26,7 @@ class Tag extends Inline {
       const tags = this.constructor.sanitize(value);
       for (let i = 0; i < tags.length; i += 1) {
         const tagIndex = (i + 1).toString;
-        this.domNode.setAttribute(`data-tag-{$tagIndex}`, value);
+        this.domNode.setAttribute(`data-tag-${tagIndex}`, value);
       }
     }
   }
@@ -35,11 +35,11 @@ Tag.blotName = 'Tag';
 Tag.tagName = 'SPAN';
 
 function sanitize(tag) {
-  const tags = tag.split(/[^A-Za-z0-9\_]/);
+  const tags = tag.split(/[^A-Za-z0-9_]/);
   const sanitizedTags = [];
-  for (const tag in tags) {
-    if (tag.length > 0) {
-      sanitizedTags.push(tag);
+  for (let i = 0; i < tags.length; i += 1) {
+    if (tags[i].length > 0) {
+      sanitizedTags.push(tags[i]);
     }
   }
   return sanitizedTags;
